@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - devcontainer # Solo se ejecutará cuando hagas push a la rama "devcontainer"
+      - main # Solo se ejecutará cuando hagas push a la rama "devcontainer"
 
 jobs:
   build-and-push:
