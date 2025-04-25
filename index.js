@@ -6,6 +6,9 @@ import matalumnoRoutes from "./routes/matalumno.routes.js";
 const app = express();
 const PORT = 3001;
 
+// Middleware
+app.use(cors(corsOptions));
+app.use(express.json());
 app.use(
   cors({
     origin: "*", // Permite todos los orígenes
@@ -13,10 +16,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-// Middleware
-app.use(cors(corsOptions));
-app.use(express.json());
 
 // Rutas
 app.use("/api/matalumno", matalumnoRoutes);
