@@ -1,0 +1,21 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+  "name": "Node.js",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorTheme": "Shades of Purple"
+      },
+      "extensions": ["ms-azuretools.vscode-docker", "dbaeumer.vscode-eslint"]
+    }
+  },
+  "mounts": ["source=node_modules,target=/app/node_modules,type=volume"],
+  "forwardPorts": [3001],
+  "remoteUser": "node"
+}
