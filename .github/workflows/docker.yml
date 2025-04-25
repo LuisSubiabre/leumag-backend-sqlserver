@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    environment: DockerHubSQL # Especifica el entorno aquí
+    environment: DockerHubSQLSERVER # Especifica el entorno aquí
 
     steps:
       - name: Checkout repository
