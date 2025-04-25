@@ -7,7 +7,6 @@ const app = express();
 const PORT = 3001;
 
 // Middleware
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(
   cors({
