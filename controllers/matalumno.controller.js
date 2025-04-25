@@ -8,7 +8,7 @@ export class MatalumnoController {
       if (!rut) {
         return res.status(400).json({
           error: "El RUT del alumno es requerido",
-          ejemplo: "?rut=12.345.678-9",
+          ejemplo: "?rut=25.122.910-4",
         });
       }
 
@@ -23,9 +23,13 @@ export class MatalumnoController {
         });
       }
 
+      // Asegurarse de que la respuesta tenga el header CORS
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.json(alumno);
     } catch (error) {
       console.error("Error en getByRut:", error);
+      // Asegurarse de que el error también tenga el header CORS
+      res.setHeader("Access-Control-Allow-Origin", "*");
       res.status(500).json({
         error: "Error interno del servidor",
         message: error.message,

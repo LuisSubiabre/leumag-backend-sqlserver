@@ -13,7 +13,8 @@ const corsOptions = {
     const allowedOrigins = [
       "http://localhost:3000", // Desarrollo local
       "http://localhost:5173", // Vite por defecto
-      "https://tu-dominio.com", // Tu dominio de producción
+      "https://nerv.liceoexperimental.cl", // Tu dominio de producción
+      "http://nerv.liceoexperimental.cl", // Versión HTTP del dominio
     ];
 
     // Permitir solicitudes sin origen (como aplicaciones móviles o curl)
@@ -22,12 +23,14 @@ const corsOptions = {
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
+      console.log("Origen no permitido:", origin);
       callback(new Error("Origen no permitido por CORS"));
     }
   },
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
+  optionsSuccessStatus: 200, // Algunos navegadores antiguos (IE11) requieren esto
 };
 
 // Middleware
